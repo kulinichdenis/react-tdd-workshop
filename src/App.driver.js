@@ -12,6 +12,8 @@ const appDriver = () => {
       wrapper.find('[data-hook="p2-input"]').simulate('change', { target: { value: p2Name } });
       wrapper.find('[data-hook="new-game"]').simulate('click');
     },
+    getCellAll: () =>
+      wrapper.find('[data-hook="cell"]').at(3).text(),
     clickACellAt: index =>
       wrapper
         .find('[data-hook="cell"]')

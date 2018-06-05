@@ -12,6 +12,10 @@ const appDriver = page => ({
     page.$$eval('[data-hook="cell"]', (cells, i) => cells[i].innerText, index),
   getWinnerMessage: () => page.$eval('[data-hook="winner-message"]', el => el.innerText),
   hasWinner: async () => !!await page.$('[data-hook="winner-message"]'),
+  getActivePlayer: () => page.$eval('.activePlayer', el => el.innerText),
+  hasRegistration: async () => !!await page.$('[data-hook="registration"]'),
+  hasBoard: async () => !!await page.$('[role="grid"]'),
+  getWinners: () => page.$$eval('[data-hook="winner"]', winner => winner.length)
 });
 
 module.exports = appDriver;
